@@ -1,0 +1,8 @@
+streamlit
+pandas
+matplotlib
+google-generativeai
+python-dotenv
+ydata-profiling
+seaborn
+numpy
