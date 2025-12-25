@@ -8,8 +8,12 @@ import preprocessing
 import os
 from dotenv import load_dotenv
 
-load_dotenv() 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+your_api_key = st.sidebar.text_input(
+    "Enter your Gemini 2.5 API key",
+    type="password"
+)
+
+genai.configure(api_key=your_api_key)
 
 model = genai.GenerativeModel("gemini-2.5-flash")
 
@@ -127,6 +131,11 @@ if uploaded_file:
     and mention at top as note in bold i am taking "some part of data only" not the entire datase
     Dataset preview:
     {df.head(5).to_string()}
+    data types of columns:{df.dtypes}
+    statistical summary:{df.describe}
+    total no of missing values:{df.isnull().sum().sum()}
+    missing values by column:{df.isnull().sum()}
+    shape of the dataset:{df.shape}
     """
 
     if len(st.session_state.messages) == 0:
@@ -179,11 +188,12 @@ if uploaded_file:
 
                     Dataset:
                     {df.head(5).to_string()}
-
+                    data types of columns:{df.dtypes}
                     dataset shape:{df.shape}
                     {df.describe}
-
-                    total missing values:
+                    duplicated records:{df.duplicated()}
+                    total no of duplicated records:{df.duplicated().sum()}
+                    total no. missing values:
                     {df.isnull().sum().sum()}
 
                     User Question:
@@ -289,6 +299,10 @@ if uploaded_file:
 
             Dataset info:
             - Shape: {df.shape}
+            - statistical summary:{df.describe}
+            - data types of columns:{df.dtypes}
+            - total no of missing values:{df.isnull().sum().sum()}
+            - missing values:{df.isnull().sum()}
             - Columns: {list(df.columns)}
             - Sample rows:
             {df.head(2).to_string()}
