@@ -1,4 +1,4 @@
-# Chat With Your Data 📊💬  
+# Chat With Your Data 📊💬
 ### AI-Powered Data Understanding & Cleaning App using Streamlit + Gemini API
 
 Understanding a dataset for the first time can be confusing.  
