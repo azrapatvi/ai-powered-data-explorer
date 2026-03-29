@@ -3,7 +3,6 @@ import pandas as pd
 import google.generativeai as genai
 import helper
 import matplotlib.pyplot as plt
-from ydata_profiling import ProfileReport
 import preprocessing
 import os
 from dotenv import load_dotenv
@@ -270,15 +269,7 @@ if uploaded_file:
 
             st.markdown("---")
             st.markdown("<div style='margin-top: 30px'></div>", unsafe_allow_html=True)
-            st.subheader("📄 Comprehensive Data Report")
-            st.caption("Generate an in-depth automated analysis report")
-            if st.button("🚀 Generate Detailed Report", use_container_width=True):
-                profile = ProfileReport(
-                    df,
-                    title="Dataset Report",
-                    minimal=True
-                )
-                st.components.v1.html(profile.to_html(), height=1000, scrolling=True)
+
 
         with tab2:
             # KEY FINDINGS
