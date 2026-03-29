@@ -3,7 +3,6 @@ import pandas as pd
 import google.generativeai as genai
 import helper
 import matplotlib.pyplot as plt
-import preprocessing
 import os
 from dotenv import load_dotenv
 
